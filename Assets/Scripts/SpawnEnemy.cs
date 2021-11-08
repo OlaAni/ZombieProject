@@ -7,6 +7,7 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject[] zombiePrefabs;
     private float spawnRangeX = -15;
     private float spawnPosZ = -5;
+    private float spawnPosY = 5;
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
 
@@ -26,7 +27,7 @@ public class SpawnEnemy : MonoBehaviour
     void SpawnZombies()
     {
         //Randomly generate zombie index and spawn location
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), spawnPosY, spawnPosZ);
         int zombieIndex = Random.Range(0, zombiePrefabs.Length);
 
         Instantiate(zombiePrefabs[zombieIndex], spawnPos, zombiePrefabs[zombieIndex].transform.rotation);
