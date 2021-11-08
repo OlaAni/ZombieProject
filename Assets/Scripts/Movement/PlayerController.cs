@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     public float speed = 12f;
     private Rigidbody playerRb;
+    public bool isDead = false;
 
     [Header("Gun Settings")]
     public float offSet;
     public int AmmoCount = 5;
     public GameObject bullet;
-    private float timeDelay = 2.0f;
+    private float timeDelay = 1.0f;
     private float timer;
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
                 timer = 0;
             }
         }
-        Debug.Log("Time until nex shot is "+Mathf.RoundToInt(timer));
+        //Debug.Log("Time until nex shot is "+Mathf.RoundToInt(timer));
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -57,7 +58,14 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             AmmoCount = 5;
-            Debug.Log("Ammo replen");
+            //Debug.Log("Ammo replen");
         }
+
+        if (other.gameObject.CompareTag("Enemy")) 
+        {
+            isDead = true;
+        }
+
+  
     }
 }
