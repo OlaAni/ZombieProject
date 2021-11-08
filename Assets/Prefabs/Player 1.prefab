@@ -148,9 +148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  isDead: 0
   offSet: 0
   AmmoCount: 5
   bullet: {fileID: 3750976330124182529, guid: 7d58a08133b1b3547993b371c0b2446b, type: 3}
+  ammoText: {fileID: 0}
 --- !u!54 &6180602244677179474
 Rigidbody:
   m_ObjectHideFlags: 0

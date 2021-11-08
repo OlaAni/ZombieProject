@@ -12,7 +12,7 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player 1");
+        player = GameObject.FindWithTag("Player");
 
     }
 

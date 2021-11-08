@@ -22,18 +22,18 @@ public class GameManager : MonoBehaviour
     {
        if(playerController.isDead == true) 
        {
+            Cursor.lockState = CursorLockMode.Confined;//Hides tHE CURSOR
             loseScreen.gameObject.SetActive(true);
             Debug.Log("Lose");
-            Time.timeScale = 0f;
-        }
+       }
     }
 
 
     public void Reset()
     {
-        Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+        playerController.isDead = true;
     }
 
     // i need to fix this button
