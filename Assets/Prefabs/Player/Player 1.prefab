@@ -100,6 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSpeed: 100
   playerGameObject: {fileID: 6180602244677179472}
+  LookUp: 0
+  bullet: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!1 &6180602244677179479
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,10 +152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   isDead: 0
-  offSet: 0
-  AmmoCount: 5
-  bullet: {fileID: 3750976330124182529, guid: 7d58a08133b1b3547993b371c0b2446b, type: 3}
+  AmmoCount: 50
   ammoText: {fileID: 0}
+  bullet: {fileID: 3750976330124182529, guid: 7d58a08133b1b3547993b371c0b2446b, type: 3}
 --- !u!54 &6180602244677179474
 Rigidbody:
   m_ObjectHideFlags: 0

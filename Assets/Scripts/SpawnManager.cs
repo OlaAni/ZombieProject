@@ -29,7 +29,8 @@ public class SpawnEnemy : MonoBehaviour
     Vector3 GenerateSpawnPosition()
     {
         float xPos = Random.Range(-spawnRangeX, spawnRangeX);
-        float zPos = Random.Range(spawnZMin, spawnZMax);
+        //float zPos = Random.Range(spawnZMin, spawnZMax);
+        float zPos = Random.Range(spawnPosZ, spawnPosZ);
         return new Vector3(xPos, spawnPosY, zPos);
     }
 
