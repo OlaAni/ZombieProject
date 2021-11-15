@@ -12,7 +12,8 @@ public class MouseController : MonoBehaviour
     [Header("Gun Settings")]
     private float timeDelay = 1.0f;
     private float timer;
-    public GameObject bullet;
+    public GameObject bullet1;
+    public GameObject bullet2;
     public PlayerController playerController;
 
     // Start is called before the first frame update
@@ -29,15 +30,13 @@ public class MouseController : MonoBehaviour
     void Update()
     {
 
-          if (Input.GetKeyDown(KeyCode.Space))
-          {
-             ShootBullet();
-          }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShootBullet();
+        }
    
-
         float mouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
-
 
         LookUp -= mouseY;
 
@@ -52,10 +51,21 @@ public class MouseController : MonoBehaviour
 
     public void ShootBullet() 
     {
-        if (playerController.AmmoCount > 0)
+        if (playerController.isSwitched)
         {
-                Instantiate(bullet, transform.position, transform.rotation);
-                playerController.AmmoCount--;
+            if (playerController.AmmoCount1 > 0)
+            {
+                Instantiate(bullet1, transform.position, transform.rotation);
+                playerController.AmmoCount1--;
+            }
+        }
+        else 
+        {
+            if (playerController.AmmoCount2 > 0)
+            {
+                Instantiate(bullet2, transform.position, transform.rotation);
+                playerController.AmmoCount2--;
+            }
         }
     }
 }

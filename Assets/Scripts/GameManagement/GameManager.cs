@@ -9,20 +9,31 @@ public class GameManager : MonoBehaviour
 {
     [Header("UI Settings")]
     public GameObject loseScreen;
+    public TextMeshProUGUI timerText;
 
     public PlayerController playerController;
+    public float timer = 50;
+
     // Start is called before the first frame update
     void Start()
     {
         playerController = PlayerController.FindObjectOfType<PlayerController>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(playerController.isDead == true) 
+        timer -= Time.deltaTime;
+        timer = Mathf.Clamp(timer, -1, 30);
+
+        timerText.text = "" + Mathf.Round(timer);
+
+       if(playerController.isDead == true || timer <= 0) 
        {
-            Cursor.lockState = CursorLockMode.Confined;//Hides tHE CURSOR
+
+            Cursor.lockState = CursorLockMode.Confined;
+            playerController.isDead = true;
             loseScreen.gameObject.SetActive(true);
             Debug.Log("Lose");
        }

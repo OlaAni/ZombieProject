@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
@@ -11,11 +12,17 @@ public class PlayerController : MonoBehaviour
     public bool isDead = false;
 
     [Header("Gun Settings")]
-    public int AmmoCount = 50;
+    public int AmmoCount1 = 50;
+    public int AmmoCount2 = 100;
     public TextMeshProUGUI ammoText;
-    public GameObject bullet;
     private float timeDelay = 1.0f;
     private float timer;
+
+    [Header("Gun Switching")]
+    public GameObject gun1;
+    public GameObject gun2;
+    public bool isSwitched = true;
+
 
 
     // Start is called before the first frame update
@@ -27,42 +34,46 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*timer += Time.deltaTime;
-        if (timeDelay < timer)
+        if (!isDead)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ShootBullet();
-                timer = 0;
-            }
-        }*/
-        //Debug.Log("Time until nex shot is "+Mathf.RoundToInt(timer));
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * z);
-        transform.Translate(Vector3.right * Time.deltaTime * speed * x);
-
-        ammoText.text = "Ammo: " + AmmoCount;
-    }
-
-    /*void ShootBullet() 
-    {
-        if (AmmoCount > 0)
-        {
-                Instantiate(bullet, transform.position, transform.rotation);
-                AmmoCount--;
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * z);
+            transform.Translate(Vector3.right * Time.deltaTime * speed * x);
         }
-    }*/
+
+        if (isSwitched) 
+        {
+            ammoText.text = "Ammo1: " + AmmoCount1 + "/50";
+        }
+        else 
+        {
+            ammoText.text = "Ammo2: " + AmmoCount2 + "/100";
+        }
+
+        SwitchWeapon();
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ammo")) 
         {
+           // if (AmmoCount1 >= 50)
+           // {
             Destroy(other.gameObject);
-            AmmoCount = 5;
-            //Debug.Log("Ammo replen");
+            AmmoCount1 += 5;
+            AmmoCount1 = Mathf.Clamp(AmmoCount1, 0, 50);
+            Debug.Log("Shotgun replen");
+            //}
+        }
+        else if (other.gameObject.CompareTag("Ammo2"))
+        {
+            Destroy(other.gameObject);
+            AmmoCount2 += 10;
+            AmmoCount2 = Mathf.Clamp(AmmoCount2, 0, 100);
+            Debug.Log("Auto Replen");
         }
 
         if (other.gameObject.CompareTag("Enemy")) 
@@ -70,4 +81,46 @@ public class PlayerController : MonoBehaviour
             isDead = true;
         }
     }
+
+
+
+    private void SwitchWeapon() 
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && isSwitched == true) 
+        {
+            Debug.Log("1");
+            gun1.SetActive(false);
+            gun2.SetActive(true);
+            isSwitched = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && isSwitched == false)
+        {
+            Debug.Log("2");
+            gun1.SetActive(true);
+            gun2.SetActive(false);
+            isSwitched = true;
+        }
+    }
 }
+
+
+/*timer += Time.deltaTime;
+if (timeDelay < timer)
+{
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        ShootBullet();
+        timer = 0;
+    }
+}*/
+//Debug.Log("Time until nex shot is "+Mathf.RoundToInt(timer));
+
+
+/*void ShootBullet() 
+{
+    if (AmmoCount > 0)
+    {
+            Instantiate(bullet, transform.position, transform.rotation);
+            AmmoCount--;
+    }
+}*/
