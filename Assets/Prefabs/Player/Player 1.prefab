@@ -102,8 +102,15 @@ MonoBehaviour:
   mouseSpeed: 100
   playerGameObject: {fileID: 6180602244677179472}
   LookUp: 0
-  bullet: {fileID: 0}
+  shotgunSound: {fileID: 8300000, guid: 4022a7fd24c1176478514e28bb9e1c9b, type: 3}
+  autoSound: {fileID: 8300000, guid: 9d8b4d01556c5d8458f3fccceaabece8, type: 3}
+  emptySound: {fileID: 8300000, guid: c996cea6db6e42c4384f45e21e9e9e56, type: 3}
+  bullet1: {fileID: 0}
+  bullet2: {fileID: 0}
   playerController: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  spread: {x: 1, y: 0, z: 0}
+  negspread: {x: -1, y: 0, z: 0}
 --- !u!1 &6180602244677179479
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,10 +160,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   isDead: 0
-  AmmoCount: 50
+  AmmoCount1: 50
+  AmmoCount2: 100
   ammoText: {fileID: 0}
   gun1: {fileID: 2446250078386806048}
   gun2: {fileID: 6911940194880965119}
+  isSwitched: 1
 --- !u!54 &6180602244677179474
 Rigidbody:
   m_ObjectHideFlags: 0

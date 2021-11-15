@@ -1920,6 +1920,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3750976330124182529, guid: 7d58a08133b1b3547993b371c0b2446b, type: 3}
     - target: {fileID: 6180602244481164838, guid: 1202c134d5593024189de67819a9efca, type: 3}
+      propertyPath: gunsound1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180602244481164838, guid: 1202c134d5593024189de67819a9efca, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 346977628272032968}

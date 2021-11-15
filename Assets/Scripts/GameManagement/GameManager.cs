@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause() 
     {
-        if (Input.GetKeyDown(KeyCode.P) && paused) 
+        if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && paused) 
         {
             pauseScreen.SetActive(true);
             paused = false;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Pause");
 
         }
-        else if (Input.GetKeyDown(KeyCode.P) && !paused)
+        else if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && !paused)
         {
             pauseScreen.SetActive(false);
             paused = true;

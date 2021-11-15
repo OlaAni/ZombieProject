@@ -86,14 +86,14 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchWeapon() 
     {
-        if (Input.GetKeyDown(KeyCode.Q) && isSwitched == true) 
+        if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") > 0 ) && isSwitched == true) 
         {
             Debug.Log("1");
             gun1.SetActive(false);
             gun2.SetActive(true);
             isSwitched = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && isSwitched == false)
+        else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") < 0) && isSwitched == false)
         {
             Debug.Log("2");
             gun1.SetActive(true);
