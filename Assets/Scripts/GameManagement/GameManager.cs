@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
     [Header("UI Settings")]
     public GameObject loseScreen;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI scoreText;
 
     public PlayerController playerController;
-    public float timer = 50;
+    public float timer = 30;
+    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
         timer = Mathf.Clamp(timer, -1, 30);
 
         timerText.text = "" + Mathf.Round(timer);
+        scoreText.text = "Score: " + score;
 
        if(playerController.isDead == true || timer <= 0) 
        {
