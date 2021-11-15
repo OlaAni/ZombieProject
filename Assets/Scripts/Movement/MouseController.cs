@@ -15,6 +15,7 @@ public class MouseController : MonoBehaviour
     public GameObject bullet1;
     public GameObject bullet2;
     public PlayerController playerController;
+    public Vector3 offset = new Vector3(0,0,5);
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +28,9 @@ public class MouseController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShootBullet();
-        }
+        ShootBullet();
    
         float mouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
@@ -53,18 +50,24 @@ public class MouseController : MonoBehaviour
     {
         if (playerController.isSwitched)
         {
-            if (playerController.AmmoCount1 > 0)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(bullet1, transform.position, transform.rotation);
-                playerController.AmmoCount1--;
+                if (playerController.AmmoCount1 > 0)
+                {
+                    Instantiate(bullet1, transform.position , transform.rotation);
+                    playerController.AmmoCount1--;
+                }
             }
         }
         else 
         {
-            if (playerController.AmmoCount2 > 0)
+            if (Input.GetKey(KeyCode.Space))
             {
-                Instantiate(bullet2, transform.position, transform.rotation);
-                playerController.AmmoCount2--;
+                if (playerController.AmmoCount2 > 0)
+                {
+                    Instantiate(bullet2, transform.position + offset, transform.rotation);
+                    playerController.AmmoCount2--;
+                }
             }
         }
     }
