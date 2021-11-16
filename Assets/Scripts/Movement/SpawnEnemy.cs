@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] zombiePrefabs;
-    public GameObject powerupPrefab;
+   // public GameObject powerupPrefab;
     private float spawnRangeX = -15;
     private float spawnPosZ = -5;
     private float spawnPosY = 5;
@@ -22,7 +22,7 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnPowerUp();
+       // SpawnPowerUp();
 
     }
 
@@ -41,15 +41,16 @@ public class SpawnEnemy : MonoBehaviour
         Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
     }
 
-    void SpawnPowerUp()
-    {
-        Vector3 powerupSpawnOffset = new Vector3(0, 0, -15); // make powerups spawn at player end
+    /* void SpawnPowerUp()
+     {
+         Vector3 powerupSpawnOffset = new Vector3(0, 0, -15); // make powerups spawn at player end
 
-        // If no powerups remain, spawn a powerup
-        if (GameObject.FindGameObjectsWithTag("Powerup").Length == 0) // check that there are zero powerups
-        {
-            Instantiate(powerupPrefab, GenerateSpawnPosition() + powerupSpawnOffset, powerupPrefab.transform.rotation);
-        }
+         // If no powerups remain, spawn a powerup
+         if (GameObject.FindGameObjectsWithTag("Powerup").Length == 0) // check that there are zero powerups
+         {
+             Instantiate(powerupPrefab, GenerateSpawnPosition() + powerupSpawnOffset, powerupPrefab.transform.rotation);
+         }
 
-    }
+     } 
+    */
 }

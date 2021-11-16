@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     [Header("UI Settings")]
     public GameObject loseScreen;
+    public GameObject winScreen;
+
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
     public GameObject pauseScreen;
@@ -42,6 +44,14 @@ public class GameManager : MonoBehaviour
             loseScreen.gameObject.SetActive(true);
             Debug.Log("Lose");
        }
+
+        if (score >= 1)
+        {
+
+            Cursor.lockState = CursorLockMode.Confined;
+            winScreen.gameObject.SetActive(true);
+            Debug.Log("Win");
+        }
 
 
         Pause();
