@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Lose");
        }
 
-        if (score >= 1)
+        if (score >= 20)
         {
 
             Cursor.lockState = CursorLockMode.Confined;
@@ -85,6 +85,4 @@ public class GameManager : MonoBehaviour
 
         }
     }
-
-    // i need to fix this button
 }

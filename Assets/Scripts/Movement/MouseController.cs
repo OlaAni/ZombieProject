@@ -49,12 +49,11 @@ public class MouseController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
 
-        LookUp -= mouseY;
-
+        LookUp = LookUp - mouseY;//
         LookUp = Mathf.Clamp(LookUp, -90f, 90f);//stops the camera from rotating to far up or down
 
-        transform.localRotation = Quaternion.Euler(LookUp, 0f, 0f);//rotates around x axis
-        playerGameObject.Rotate(Vector3.up * mouseX);//rotates around the y axis
+        transform.localRotation = Quaternion.Euler(LookUp, 0f, 0f);//rotates the camera around y axis
+        playerGameObject.Rotate(Vector3.up * mouseX);//rotates the player around the x axis
 
 
     }
