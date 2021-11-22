@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] zombiePrefabs;
-   // public GameObject powerupPrefab;
+    public GameObject[] ammoPrefab;
     private float spawnRangeX = -15;
     private float spawnPosZ = -5;
-    private float spawnPosY = 5;
+    private float spawnPosY = 1;
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
 
@@ -16,6 +16,7 @@ public class SpawnEnemy : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
+        InvokeRepeating("SpawnAmmo", startDelay, spawnInterval);
 
     }
 
@@ -34,6 +35,15 @@ public class SpawnEnemy : MonoBehaviour
         return new Vector3(xPos, spawnPosY, zPos);
     }
 
+
+    Vector3 GenerateSpawnPosition1()
+    {
+        float xPos = Random.Range(-spawnRangeX, spawnRangeX);
+        float yPos = Random.Range(spawnPosY, spawnPosY);
+        float zPos = Random.Range(spawnPosZ, spawnPosZ);
+        return new Vector3(xPos, yPos, zPos);
+    }
+
     void SpawnZombies()
     {
         int zombieIndex = Random.Range(0, zombiePrefabs.Length);
@@ -41,16 +51,18 @@ public class SpawnEnemy : MonoBehaviour
         Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
     }
 
-    /* void SpawnPowerUp()
-     {
-         Vector3 powerupSpawnOffset = new Vector3(0, 0, -15); // make powerups spawn at player end
 
-         // If no powerups remain, spawn a powerup
-         if (GameObject.FindGameObjectsWithTag("Powerup").Length == 0) // check that there are zero powerups
-         {
-             Instantiate(powerupPrefab, GenerateSpawnPosition() + powerupSpawnOffset, powerupPrefab.transform.rotation);
-         }
 
-     } 
-    */
+    void SpawnAmmo()
+    {
+        //Vector3 powerupSpawnOffset = new Vector3(0, 0, -15); // make powerups spawn at player end
+
+
+        int ammoIndex = Random.Range(0, zombiePrefabs.Length);
+
+
+        Instantiate(ammoPrefab[ammoIndex], GenerateSpawnPosition1(), ammoPrefab[ammoIndex].transform.rotation);
+
+    }
+
 }
