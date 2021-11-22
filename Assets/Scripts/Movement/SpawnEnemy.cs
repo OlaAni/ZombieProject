@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] zombiePrefabs;
-    public GameObject[] ammoPrefab;
+   // public GameObject powerupPrefab;
     private float spawnRangeX = -15;
     private float spawnPosZ = -5;
-    private float spawnPosY = 1;
+    private float spawnPosY = 5;
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
 
@@ -16,23 +16,22 @@ public class SpawnEnemy : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
-        InvokeRepeating("SpawnAmmo", startDelay, spawnInterval);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // SpawnPowerUp();
+       // SpawnPowerUp();
 
     }
 
     Vector3 GenerateSpawnPosition()
     {
         float xPos = Random.Range(-spawnRangeX, spawnRangeX);
-        float yPos = Random.Range(spawnPosY, spawnPosY);
+        //float zPos = Random.Range(spawnZMin, spawnZMax);
         float zPos = Random.Range(spawnPosZ, spawnPosZ);
-        return new Vector3(xPos, yPos, zPos);
+        return new Vector3(xPos, spawnPosY, zPos);
     }
 
     void SpawnZombies()
@@ -42,12 +41,16 @@ public class SpawnEnemy : MonoBehaviour
         Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
     }
 
-    void SpawnAmmo()
-    {
-        int ammoIndex = Random.Range(0, zombiePrefabs.Length);
+    /* void SpawnPowerUp()
+     {
+         Vector3 powerupSpawnOffset = new Vector3(0, 0, -15); // make powerups spawn at player end
 
+         // If no powerups remain, spawn a powerup
+         if (GameObject.FindGameObjectsWithTag("Powerup").Length == 0) // check that there are zero powerups
+         {
+             Instantiate(powerupPrefab, GenerateSpawnPosition() + powerupSpawnOffset, powerupPrefab.transform.rotation);
+         }
 
-        Instantiate(ammoPrefab[ammoIndex], GenerateSpawnPosition(), ammoPrefab[ammoIndex].transform.rotation);
-
-    }
+     } 
+    */
 }
