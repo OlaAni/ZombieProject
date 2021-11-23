@@ -7,9 +7,10 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    public float speed = 12f;
+    public float speed = 20f;
     private Rigidbody playerRb;
     public bool isDead = false;
+    public LayerMask terrainLayer;
 
     [Header("Gun Settings")]
     public int AmmoCount1 = 50;
@@ -55,7 +56,6 @@ public class PlayerController : MonoBehaviour
         SwitchWeapon();
 
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ammo")) 
@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
         {
             isDead = true;
         }
+
+
     }
 
 

@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             playerController.isDead = true;
             loseScreen.gameObject.SetActive(true);
-            Debug.Log("Lose");
        }
 
         if (score >= 20)
