@@ -6,15 +6,15 @@ Alpha Project Parts
 
 
 Thomas
-Enemy Movement
-Spawning (ammo and enemies
-Win State
+Enemy Movement,
+Spawning (ammo and enemies),
+Win State,
 Enemy Models
 
 Ola
-Player Movement
-Combat (Guns and ammo)
-Fail State
+Player Movement,
+Combat (Guns and ammo),
+Fail State,
 MiniMap
 
 
