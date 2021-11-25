@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 20f;
     private Rigidbody playerRb;
     public bool isDead = false;
-    public LayerMask terrainLayer;
 
     [Header("Gun Settings")]
     public int AmmoCount1 = 50;
@@ -18,6 +17,12 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI ammoText;
     private float timeDelay = 1.0f;
     private float timer;
+
+    [Header("Ammo Sounds")]
+    private AudioSource gunAudio;
+    public AudioClip reloadAudio;
+
+
 
     [Header("Gun Switching")]
     public GameObject gun1;
@@ -29,6 +34,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gunAudio = GetComponent<AudioSource>();
+
         playerRb = GetComponent<Rigidbody>();
     }
 
@@ -66,6 +73,8 @@ public class PlayerController : MonoBehaviour
             AmmoCount1 += 5;
             AmmoCount1 = Mathf.Clamp(AmmoCount1, 0, 50);
             Debug.Log("Shotgun replen");
+            gunAudio.PlayOneShot(reloadAudio, 1.0f);
+
             //}
         }
         else if (other.gameObject.CompareTag("Ammo2"))
@@ -74,6 +83,8 @@ public class PlayerController : MonoBehaviour
             AmmoCount2 += 10;
             AmmoCount2 = Mathf.Clamp(AmmoCount2, 0, 100);
             Debug.Log("Auto Replen");
+            gunAudio.PlayOneShot(reloadAudio, 1.0f);
+
         }
 
         if (other.gameObject.CompareTag("Enemy")) 
@@ -83,7 +94,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
 
 
     private void SwitchWeapon() 

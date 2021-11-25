@@ -19,8 +19,8 @@ public class MouseController : MonoBehaviour
 
 
     [Header("Gun Settings")]
-    private float timeDelay = 1.0f;
-    private float timer;
+    //private float timeDelay = 1.0f;
+    //private float timer;
     public GameObject bullet1;
     public GameObject bullet2;
     public PlayerController playerController;
@@ -42,18 +42,21 @@ public class MouseController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
-        ShootBullet();
-   
-        float mouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
+        if (!playerController.isDead)
+        {
+            ShootBullet();
 
-        LookUp = LookUp - mouseY;//
-        LookUp = Mathf.Clamp(LookUp, -90f, 90f);//stops the camera from rotating to far up or down
+            float mouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
 
-        transform.localRotation = Quaternion.Euler(LookUp, 0f, 0f);//rotates the camera around y axis
-        playerGameObject.Rotate(Vector3.up * mouseX);//rotates the player around the x axis
+            LookUp = LookUp - mouseY;//
+            LookUp = Mathf.Clamp(LookUp, -90f, 90f);//stops the camera from rotating to far up or down
+
+            transform.localRotation = Quaternion.Euler(LookUp, 0f, 0f);//rotates the camera around y axis
+            playerGameObject.Rotate(Vector3.up * mouseX);//rotates the player around the x axis
+        }
 
 
     }
@@ -98,5 +101,13 @@ public class MouseController : MonoBehaviour
                 }
             }
         }
+
+
+        if (Input.GetKey(KeyCode.E)) 
+        {
+        
+        }
+
+
     }
 }

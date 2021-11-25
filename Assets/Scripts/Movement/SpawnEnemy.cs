@@ -6,17 +6,26 @@ public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] zombiePrefabs;
     public GameObject[] ammoPrefab;
-    private float spawnRangeX = -15;
-    private float spawnPosZ = -5;
-    private float spawnPosY = 1;
+
+    public float spawnRangeX = -15;
+    public float spawnPosZ = -5;
+    public float spawnPosY = 1;
     private float startDelay = 2;
     private float spawnInterval = 2.5f;
+
+    public PlayerController playerController;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
-        InvokeRepeating("SpawnAmmo", startDelay, spawnInterval);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        PlayerController playerController = player.GetComponent<PlayerController>();
+
+        InvokeRepeating("SpawnAmmo", startDelay, 2f);
+
+        //InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
 
     }
 
@@ -29,40 +38,42 @@ public class SpawnEnemy : MonoBehaviour
 
     Vector3 GenerateSpawnPosition()
     {
-        float xPos = Random.Range(-spawnRangeX, spawnRangeX);
-        //float zPos = Random.Range(spawnZMin, spawnZMax);
-        float zPos = Random.Range(spawnPosZ, spawnPosZ);
+        float xPos = Random.Range(spawnRangeX, spawnRangeX + 300);
+        float zPos = Random.Range(spawnPosZ, spawnPosZ + 300);
         return new Vector3(xPos, spawnPosY, zPos);
     }
 
 
     Vector3 GenerateSpawnPosition1()
     {
-        float xPos = Random.Range(-spawnRangeX, spawnRangeX);
-        float yPos = Random.Range(spawnPosY, spawnPosY);
-        float zPos = Random.Range(spawnPosZ, spawnPosZ);
-        return new Vector3(xPos, yPos, zPos);
+        float xPos = Random.Range(spawnRangeX, spawnRangeX + 300);
+        float zPos = Random.Range(spawnPosZ, spawnPosZ + 300);
+        return new Vector3(xPos, spawnPosY, zPos);
     }
 
     void SpawnZombies()
     {
-        int zombieIndex = Random.Range(0, zombiePrefabs.Length);
+        if (!playerController.isDead)
+        {
+            int zombieIndex = Random.Range(0, zombiePrefabs.Length);
 
-        Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
+            for (int i = 0; i < 5; i++)
+            {
+                Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
+            }
+        }
     }
 
 
 
     void SpawnAmmo()
     {
-        //Vector3 powerupSpawnOffset = new Vector3(0, 0, -15); // make powerups spawn at player end
+        if (!playerController.isDead)
+        {
+            int ammoIndex = Random.Range(0, zombiePrefabs.Length);
 
-
-        int ammoIndex = Random.Range(0, zombiePrefabs.Length);
-
-
-        Instantiate(ammoPrefab[ammoIndex], GenerateSpawnPosition1(), ammoPrefab[ammoIndex].transform.rotation);
-
+            Instantiate(ammoPrefab[ammoIndex], GenerateSpawnPosition1(), ammoPrefab[ammoIndex].transform.rotation);
+        }
     }
 
 }
