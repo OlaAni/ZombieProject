@@ -42,11 +42,12 @@ public class MouseController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (!playerController.isDead)
         {
             ShootBullet();
+
 
             float mouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;

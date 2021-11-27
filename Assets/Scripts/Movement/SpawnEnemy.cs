@@ -11,20 +11,21 @@ public class SpawnEnemy : MonoBehaviour
     public float spawnPosZ = -5;
     public float spawnPosY = 1;
     private float startDelay = 2;
-    private float spawnInterval = 2.5f;
+    private float spawnInterval = 2f;
 
     public PlayerController playerController;
+
+    public GameObject playerPos;
 
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         PlayerController playerController = player.GetComponent<PlayerController>();
 
-        InvokeRepeating("SpawnAmmo", startDelay, 2f);
 
+        InvokeRepeating("SpawnAmmo", startDelay, spawnInterval);
         //InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
 
     }
@@ -32,7 +33,6 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // SpawnPowerUp();
 
     }
 
@@ -44,11 +44,12 @@ public class SpawnEnemy : MonoBehaviour
     }
 
 
-    Vector3 GenerateSpawnPosition1()
+    Vector3 GenerateAmmoPosition()
     {
-        float xPos = Random.Range(spawnRangeX, spawnRangeX + 300);
-        float zPos = Random.Range(spawnPosZ, spawnPosZ + 300);
-        return new Vector3(xPos, spawnPosY, zPos);
+        float xPos = Random.Range(5, 20);
+        float zPos = Random.Range(5, 20);
+
+        return new Vector3(playerPos.transform.position.x + xPos, spawnPosY, playerPos.transform.position.z + zPos);
     }
 
     void SpawnZombies()
@@ -70,9 +71,10 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (!playerController.isDead)
         {
-            int ammoIndex = Random.Range(0, zombiePrefabs.Length);
+            int ammoIndex = Random.Range(0, ammoPrefab.Length);
+            Debug.Log(ammoIndex);
 
-            Instantiate(ammoPrefab[ammoIndex], GenerateSpawnPosition1(), ammoPrefab[ammoIndex].transform.rotation);
+            Instantiate(ammoPrefab[ammoIndex], GenerateAmmoPosition(), ammoPrefab[ammoIndex].transform.rotation);
         }
     }
 

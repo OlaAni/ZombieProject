@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2599562463909449316}
   - component: {fileID: 3348628744223263759}
+  - component: {fileID: 1065180406784262091}
   m_Layer: 0
   m_Name: Ammo2
   m_TagString: Ammo2
@@ -46,6 +47,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12533954, y: 0.098956585, z: 0.13737571}
   m_Center: {x: -0.002195537, y: 0.0021976472, z: 0.004397905}
+--- !u!95 &1065180406784262091
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4560697328399715832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 227ce3e88c9e76d47853c3d75062be29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4139721118927615590
 PrefabInstance:
   m_ObjectHideFlags: 0

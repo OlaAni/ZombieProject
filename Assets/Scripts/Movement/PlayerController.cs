@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    public float speed = 20f;
+    public float speed = 100f;
     private Rigidbody playerRb;
     public bool isDead = false;
 
@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     public int AmmoCount1 = 50;
     public int AmmoCount2 = 100;
     public TextMeshProUGUI ammoText;
-    private float timeDelay = 1.0f;
-    private float timer;
 
     [Header("Ammo Sounds")]
     private AudioSource gunAudio;
@@ -47,8 +45,14 @@ public class PlayerController : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
-            transform.Translate(Vector3.forward * Time.deltaTime * speed * z);
-            transform.Translate(Vector3.right * Time.deltaTime * speed * x);
+
+            Vector3 move = new Vector3(x, 0, z).normalized;
+
+
+            //transform.Translate(Vector3.forward * Time.deltaTime * speed * z);
+            // transform.Translate(Vector3.right * Time.deltaTime * speed * x);
+
+            transform.Translate(move * speed * Time.deltaTime);
         }
 
         if (isSwitched) 
@@ -65,7 +69,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ammo")) 
+        if (other.gameObject.CompareTag("Ammo") && !(AmmoCount1 == 50)) 
         {
            // if (AmmoCount1 >= 50)
            // {
@@ -77,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
             //}
         }
-        else if (other.gameObject.CompareTag("Ammo2"))
+        else if (other.gameObject.CompareTag("Ammo2") && !(AmmoCount2 == 100))
         {
             Destroy(other.gameObject);
             AmmoCount2 += 10;
