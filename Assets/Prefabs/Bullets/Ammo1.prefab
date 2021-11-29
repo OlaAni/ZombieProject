@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 318900897771986961, guid: 4eff889102226024d8f08b667f8b2971, type: 3}
       propertyPath: m_TagString
-      value: Ammo
+      value: Ammo2
       objectReference: {fileID: 0}
     - target: {fileID: 3863634146400483919, guid: 4eff889102226024d8f08b667f8b2971, type: 3}
       propertyPath: m_RootOrder

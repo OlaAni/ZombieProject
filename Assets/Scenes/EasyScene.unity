@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2419591, g: 0.29372618, b: 0.756467, a: 1}
+  m_IndirectSpecularColor: {r: 0.24195868, g: 0.29372546, b: 0.756466, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,7 +243,11 @@ PrefabInstance:
     - target: {fileID: 2407519174232336550, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: ammoPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 2116154202247858936, guid: 426d766d7d4da3844b789117abcca603, type: 3}
+      objectReference: {fileID: 590042339360288150, guid: bf891ad003138f7469a80e35baf0a072, type: 3}
+    - target: {fileID: 2407519174232336550, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
+      propertyPath: ammoPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 4885439402274853344, guid: f09990d24148e3d4e95d48a2bff04de1, type: 3}
     - target: {fileID: 3538352220557593102, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10.30191

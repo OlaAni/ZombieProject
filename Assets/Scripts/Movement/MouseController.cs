@@ -102,13 +102,5 @@ public class MouseController : MonoBehaviour
                 }
             }
         }
-
-
-        if (Input.GetKey(KeyCode.E)) 
-        {
-        
-        }
-
-
     }
 }
