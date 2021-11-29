@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - GameManager
   - Ammo2
+  - AmmoAmounts
   layers:
   - Default
   - TransparentFX

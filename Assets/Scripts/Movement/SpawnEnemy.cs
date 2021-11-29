@@ -26,14 +26,14 @@ public class SpawnEnemy : MonoBehaviour
 
 
         InvokeRepeating("SpawnAmmo", startDelay, spawnInterval);
-        //InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
+        InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(GameObject.FindGameObjectsWithTag("AmmoAmounts").Length);
     }
 
     Vector3 GenerateSpawnPosition()
@@ -58,9 +58,13 @@ public class SpawnEnemy : MonoBehaviour
         {
             int zombieIndex = Random.Range(0, zombiePrefabs.Length);
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
-                Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length < 15)
+                {
+
+                    Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
+                }
             }
         }
     }
@@ -72,9 +76,13 @@ public class SpawnEnemy : MonoBehaviour
         if (!playerController.isDead)
         {
             int ammoIndex = Random.Range(0, ammoPrefab.Length);
-            Debug.Log(ammoIndex);
+            //Debug.Log(ammoIndex);
 
-            Instantiate(ammoPrefab[ammoIndex], GenerateAmmoPosition(), ammoPrefab[ammoIndex].transform.rotation);
+            if (GameObject.FindGameObjectsWithTag("AmmoAmounts").Length < 20)
+            {
+
+                Instantiate(ammoPrefab[ammoIndex], GenerateAmmoPosition(), ammoPrefab[ammoIndex].transform.rotation);
+            }
         }
     }
 

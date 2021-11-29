@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        timer = Mathf.Clamp(timer, -1, 30);
+        timer = Mathf.Clamp(timer, 0, 100);
 
         timerText.text = "" + Mathf.Round(timer);
         scoreText.text = "Score: " + score;
