@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public bool paused = true;
 
+
+    Scene m_Scene;
+    string sceneName; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +34,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         timer -= Time.deltaTime;
-        timer = Mathf.Clamp(timer, 0, 100);
+        timer = Mathf.Clamp(timer, 0, 30);
 
         timerText.text = "" + Mathf.Round(timer);
         scoreText.text = "Score: " + score;

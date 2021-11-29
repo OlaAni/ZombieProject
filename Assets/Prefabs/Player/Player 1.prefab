@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0eee2dbea6432418d6c9c62f21f411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSpeed: 100
+  mouseSpeed: 200
   playerGameObject: {fileID: 6180602244677179472}
   LookUp: 0
   shotgunSound: {fileID: 8300000, guid: 4022a7fd24c1176478514e28bb9e1c9b, type: 3}
@@ -225,7 +225,7 @@ GameObject:
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

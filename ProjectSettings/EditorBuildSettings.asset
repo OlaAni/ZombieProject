@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HardScene.unity
     guid: d6119413d3e591c4c9c867a2dd9caa0b
+  - enabled: 1
+    path: Assets/Scenes/NightmareScene.unity
+    guid: 6b5fe097781dd8f41af7ca646e76274e
   - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 5e7af4bd95ac53a4cb784a9eedf8f6f9

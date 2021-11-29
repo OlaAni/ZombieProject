@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class SpawnEnemy : MonoBehaviour
 
     public GameObject playerPos;
 
+    Scene m_Scene;
+    string sceneName;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,7 @@ public class SpawnEnemy : MonoBehaviour
 
 
         InvokeRepeating("SpawnAmmo", startDelay, spawnInterval);
+
         InvokeRepeating("SpawnZombies", startDelay, spawnInterval);
 
     }
@@ -33,7 +38,11 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GameObject.FindGameObjectsWithTag("AmmoAmounts").Length);
+        //Debug.Log(GameObject.FindGameObjectsWithTag("AmmoAmounts").Length);
+        m_Scene = SceneManager.GetActiveScene();
+        sceneName = m_Scene.name;
+
+
     }
 
     Vector3 GenerateSpawnPosition()
@@ -57,13 +66,26 @@ public class SpawnEnemy : MonoBehaviour
         if (!playerController.isDead)
         {
             int zombieIndex = Random.Range(0, zombiePrefabs.Length);
-
-            for (int i = 0; i < 3; i++)
+            if (sceneName == "NightmareScene")
             {
-                if (GameObject.FindGameObjectsWithTag("Enemy").Length < 15)
+                for (int i = 0; i < 50; i++)
                 {
+                    if (GameObject.FindGameObjectsWithTag("Enemy").Length < 50)
+                    {
 
-                    Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
+                        Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (GameObject.FindGameObjectsWithTag("Enemy").Length < 15)
+                    {
+
+                        Instantiate(zombiePrefabs[zombieIndex], GenerateSpawnPosition(), zombiePrefabs[zombieIndex].transform.rotation);
+                    }
                 }
             }
         }

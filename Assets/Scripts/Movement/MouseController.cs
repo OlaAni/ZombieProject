@@ -76,7 +76,6 @@ public class MouseController : MonoBehaviour
                     Instantiate(bullet1, transform.position + negspread  , transform.rotation);
                     gunAudio.PlayOneShot(shotgunSound, 1.0f);
 
-
                     playerController.AmmoCount1--;
                 }
                 else 

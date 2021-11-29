@@ -28,11 +28,11 @@ public class FollowPlayer : MonoBehaviour
 
         if(sceneName == "EasyScene") 
         {
-            speed = 10;
+            speed = 7;
         }
         else if(sceneName == "HardScene") 
         {
-            speed = 12;
+            speed = 10;
         }
         enemyRb.AddForce((player.transform.position - transform.position).normalized * speed);
         //bug.Log(speed);

@@ -1755,7 +1755,7 @@ MonoBehaviour:
   zombiePrefabs:
   - {fileID: 4541862379391202655, guid: 362817f67045808479f7c4666da2b47a, type: 3}
   ammoPrefab:
-  - {fileID: 590042339360288150, guid: bf891ad003138f7469a80e35baf0a072, type: 3}
+  - {fileID: 6279038578442842196, guid: bf891ad003138f7469a80e35baf0a072, type: 3}
   - {fileID: 4885439402274853344, guid: f09990d24148e3d4e95d48a2bff04de1, type: 3}
   spawnRangeX: 300
   spawnPosZ: 250
