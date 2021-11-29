@@ -1,4 +1,4 @@
-# ZombieProject
+# ZombieProject - Beta
 IMM Project
 
 Ola Player Movement, Combat (Guns and ammo), Fail State, MiniMap, ammo animations, difficulty
