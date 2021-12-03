@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("UI Settings")]
     public GameObject loseScreen;
     public GameObject winScreen;
+    
 
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             playerController.isDead = true;
             loseScreen.gameObject.SetActive(true);
-       }
+        }
 
         if (score >= 20)
         {
