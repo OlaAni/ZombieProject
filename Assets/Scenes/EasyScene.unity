@@ -288,6 +288,18 @@ PrefabInstance:
       propertyPath: timer
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5842680194195415347, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
+      propertyPath: levelNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842680194195415347, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
+      propertyPath: levelNames.Array.data[0]
+      value: Lose Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842680194195415347, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
+      propertyPath: levelNames.Array.data[1]
+      value: Win Scene
+      objectReference: {fileID: 0}
     - target: {fileID: 7806434133035585727, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: m_RootOrder
       value: 1

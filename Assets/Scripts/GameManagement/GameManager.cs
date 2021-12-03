@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("UI Settings")]
-    public GameObject loseScreen;
-    public GameObject winScreen;
+    //public GameObject loseScreen;
+    //public GameObject winScreen;
     
 
     public TextMeshProUGUI timerText;
@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public bool paused = true;
 
+    [Header("Scenes")]
+    public string[] levelNames;
 
     Scene m_Scene;
     string sceneName; 
@@ -47,15 +49,17 @@ public class GameManager : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Confined;
             playerController.isDead = true;
-            loseScreen.gameObject.SetActive(true);
-        }
+            //loseScreen.gameObject.SetActive(true);
+            SceneManager.LoadScene(levelNames[0]);
 
-        if (score >= 20)
+       }
+
+        if (score >= 1)
         {
 
             Cursor.lockState = CursorLockMode.Confined;
-            winScreen.gameObject.SetActive(true);
-            Debug.Log("Win");
+            // winScreen.gameObject.SetActive(true);
+            SceneManager.LoadScene(levelNames[1]);
         }
 
 

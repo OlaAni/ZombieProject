@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NightmareScene.unity
     guid: 6b5fe097781dd8f41af7ca646e76274e
+  - enabled: 1
+    path: Assets/Scenes/Lose Scene.unity
+    guid: 9f38fd4e6319c2e4e89a14b0b0b279ac
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: de61cdde636138043980deea16b2858a
   - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 5e7af4bd95ac53a4cb784a9eedf8f6f9
