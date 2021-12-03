@@ -1,7 +1,7 @@
 # ZombieProject - Beta
 IMM Project
 
-Ola Player Movement, Combat (Guns and ammo), Fail State, MiniMap, ammo animations, difficulty
+Ola Player Movement, Combat (Guns and ammo), Fail State, MiniMap, ammo animations, difficulty, Music Manager
 
 Thomas Enemy Movement, Spawning (ammo and enemies), Win State, Enemy Models
 
