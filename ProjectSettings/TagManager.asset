@@ -9,6 +9,7 @@ TagManager:
   - GameManager
   - Ammo2
   - AmmoAmounts
+  - ZombieCartoon
   layers:
   - Default
   - TransparentFX
