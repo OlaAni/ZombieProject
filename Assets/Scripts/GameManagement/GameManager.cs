@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Scene scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+
+
 
         timer -= Time.deltaTime;
         timer = Mathf.Clamp(timer, 0, 30);
@@ -50,11 +54,23 @@ public class GameManager : MonoBehaviour
 
        }
 
-        if (score >= 1)
+        if (sceneName == "EasyScene")
         {
+            if (score >= 10)
+            {
 
-            Cursor.lockState = CursorLockMode.Confined;
-            SceneManager.LoadScene(levelNames[1]);
+                Cursor.lockState = CursorLockMode.Confined;
+                SceneManager.LoadScene(levelNames[1]);
+            }
+        }
+        else if(sceneName == "HardScene") 
+        {
+            if (score >= 30)
+            {
+
+                Cursor.lockState = CursorLockMode.Confined;
+                SceneManager.LoadScene(levelNames[1]);
+            }
         }
 
 
@@ -65,6 +81,7 @@ public class GameManager : MonoBehaviour
     public void Reset()
     {
         Scene scene = SceneManager.GetActiveScene();
+
         SceneManager.LoadScene(scene.name);
         playerController.isDead = true;
     }    

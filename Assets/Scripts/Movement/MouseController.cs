@@ -34,7 +34,7 @@ public class MouseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;//Hides tHE CURSOR
+        Cursor.lockState = CursorLockMode.Locked;//Hides tHE CURSOR
         gunAudio = GetComponent<AudioSource>();
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");

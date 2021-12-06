@@ -59,11 +59,11 @@ public class PlayerController : MonoBehaviour
 
         if (isSwitched) 
         {
-            ammoText.text = "Ammo1: " + AmmoCount1 + "/50";
+            ammoText.text = "Shotgun: " + AmmoCount1 + "/100";
         }
         else 
         {
-            ammoText.text = "Ammo2: " + AmmoCount2 + "/100";
+            ammoText.text = "Pistol: " + AmmoCount2 + "/50";
         }
 
         SwitchWeapon();
@@ -88,19 +88,19 @@ public class PlayerController : MonoBehaviour
 
     private void AmmoPickup(Collider other) //ammo pickup
     {
-        if (other.gameObject.CompareTag("Ammo") && !(AmmoCount1 == 50))
+        if (other.gameObject.CompareTag("Ammo") && !(AmmoCount1 == 100))
         {
             Destroy(other.gameObject);
             AmmoCount1 += 5;
-            AmmoCount1 = Mathf.Clamp(AmmoCount1, 0, 50);
+            AmmoCount1 = Mathf.Clamp(AmmoCount1, 0, 100);
             Debug.Log("Shotgun replen");
             gunAudio.PlayOneShot(reloadAudio, 1.0f);
         }
-        else if (other.gameObject.CompareTag("Ammo2") && !(AmmoCount2 == 100))
+        else if (other.gameObject.CompareTag("Ammo2") && !(AmmoCount2 == 50))
         {
             Destroy(other.gameObject);
             AmmoCount2 += 10;
-            AmmoCount2 = Mathf.Clamp(AmmoCount2, 0, 100);
+            AmmoCount2 = Mathf.Clamp(AmmoCount2, 0, 50);
             Debug.Log("Auto Replen");
             gunAudio.PlayOneShot(reloadAudio, 1.0f);
 

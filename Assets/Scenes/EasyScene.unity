@@ -244,18 +244,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EssentialObjects
       objectReference: {fileID: 0}
-    - target: {fileID: 2407519174232336550, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
-      propertyPath: ammoPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2407519174232336550, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
-      propertyPath: ammoPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 4885439402274853344, guid: f09990d24148e3d4e95d48a2bff04de1, type: 3}
-    - target: {fileID: 2407519174232336550, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
-      propertyPath: ammoPrefab.Array.data[1]
-      value: 
-      objectReference: {fileID: 4885439402274853344, guid: f09990d24148e3d4e95d48a2bff04de1, type: 3}
     - target: {fileID: 3538352220557593102, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10.30191
