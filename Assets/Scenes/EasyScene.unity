@@ -226,7 +226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 346977628272032968, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: speed
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 346977628272032971, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,6 +260,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -10.30191
       objectReference: {fileID: 0}
+    - target: {fileID: 5842680193010705530, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842680193010705530, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5842680194195415344, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -287,18 +295,6 @@ PrefabInstance:
     - target: {fileID: 5842680194195415347, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: timer
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842680194195415347, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
-      propertyPath: levelNames.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842680194195415347, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
-      propertyPath: levelNames.Array.data[0]
-      value: Lose Scene
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842680194195415347, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
-      propertyPath: levelNames.Array.data[1]
-      value: Win Scene
       objectReference: {fileID: 0}
     - target: {fileID: 7806434133035585727, guid: 02e59604b5f866a40801bf7fb47647fc, type: 3}
       propertyPath: m_RootOrder
@@ -359,7 +355,7 @@ GameObject:
   - component: {fileID: 907378709}
   m_Layer: 6
   m_Name: Terrain_0_0_c393efd2-b575-459b-9ce6-196d8ed2102c
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

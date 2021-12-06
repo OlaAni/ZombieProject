@@ -8,14 +8,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("UI Settings")]
-    //public GameObject loseScreen;
-    //public GameObject winScreen;
-    
-
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
     public GameObject pauseScreen;
 
+    [Header("Game Logic")]
     public PlayerController playerController;
     public float timer = 30;
     public int score = 0;
@@ -49,7 +46,6 @@ public class GameManager : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Confined;
             playerController.isDead = true;
-            //loseScreen.gameObject.SetActive(true);
             SceneManager.LoadScene(levelNames[0]);
 
        }
@@ -58,7 +54,6 @@ public class GameManager : MonoBehaviour
         {
 
             Cursor.lockState = CursorLockMode.Confined;
-            // winScreen.gameObject.SetActive(true);
             SceneManager.LoadScene(levelNames[1]);
         }
 
@@ -72,10 +67,16 @@ public class GameManager : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
         playerController.isDead = true;
+    }    
+    
+    public void Menu()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(levelNames[2]);
     }
 
 
-    public void Pause() 
+    public void Pause() //sets timer to 0
     {
         if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && paused) 
         {
