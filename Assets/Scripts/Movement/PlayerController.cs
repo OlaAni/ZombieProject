@@ -43,10 +43,10 @@ public class PlayerController : MonoBehaviour
         if (!isDead)
         {
             float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
+            float z = Input.GetAxis("Vertical");// movement for player
 
 
-            Vector3 move = new Vector3(x, 0, z).normalized;
+            Vector3 move = new Vector3(x, 0, z).normalized;//stops the playe from ghoin faster when moving diagonally 
 
 
             //transform.Translate(Vector3.forward * Time.deltaTime * speed * z);
@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour
 
             transform.Translate(move * speed * Time.deltaTime);
         }
+
+        //Weapon swtich logic
 
         if (isSwitched) 
         {
@@ -69,17 +71,30 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ammo") && !(AmmoCount1 == 50)) 
+        AmmoPickup(other);
+
+        if (other.gameObject.CompareTag("Enemy")) 
         {
-           // if (AmmoCount1 >= 50)
-           // {
+            isDead = true;
+        }        
+        
+        if (other.gameObject.CompareTag("Walls")) 
+        {
+            transform.position = new Vector3(500, 1, 500);
+        }
+
+
+    }
+
+    private void AmmoPickup(Collider other) //ammo pickup
+    {
+        if (other.gameObject.CompareTag("Ammo") && !(AmmoCount1 == 50))
+        {
             Destroy(other.gameObject);
             AmmoCount1 += 5;
             AmmoCount1 = Mathf.Clamp(AmmoCount1, 0, 50);
             Debug.Log("Shotgun replen");
             gunAudio.PlayOneShot(reloadAudio, 1.0f);
-
-            //}
         }
         else if (other.gameObject.CompareTag("Ammo2") && !(AmmoCount2 == 100))
         {
@@ -90,17 +105,10 @@ public class PlayerController : MonoBehaviour
             gunAudio.PlayOneShot(reloadAudio, 1.0f);
 
         }
-
-        if (other.gameObject.CompareTag("Enemy")) 
-        {
-            isDead = true;
-        }
-
-
     }
 
 
-    private void SwitchWeapon() 
+    private void SwitchWeapon() //changes acrive weapon
     {
         if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") > 0 ) && isSwitched == true) 
         {
@@ -118,25 +126,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-
-
-/*timer += Time.deltaTime;
-if (timeDelay < timer)
-{
-    if (Input.GetKeyDown(KeyCode.Space))
-    {
-        ShootBullet();
-        timer = 0;
-    }
-}*/
-//Debug.Log("Time until nex shot is "+Mathf.RoundToInt(timer));
-
-
-/*void ShootBullet() 
-{
-    if (AmmoCount > 0)
-    {
-            Instantiate(bullet, transform.position, transform.rotation);
-            AmmoCount--;
-    }
-}*/
