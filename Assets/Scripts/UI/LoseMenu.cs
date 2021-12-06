@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoseMenu : MonoBehaviour
 {
-    public string sceneIndex = "TestScene";
+    public string sceneIndex = "EasyScene";
     // Start is called before the first frame update
     public void PlayGame()
     {
