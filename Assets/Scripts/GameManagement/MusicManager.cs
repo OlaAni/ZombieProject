@@ -24,17 +24,18 @@ public class MusicManager : MonoBehaviour
 
         if (sceneName == "EasyScene")
         {
-            audioSource.clip = audioClip[1];
+            audioSource.clip = audioClip[0];
             audioSource.Play();
         }
         else if (sceneName == "HardScene")
         {
-            audioSource.clip = audioClip[2];
+            audioSource.clip = audioClip[1];
             audioSource.Play();
+            //Debug.Log("SecondScene");
         }        
         else if (sceneName == "NightmareScene")
         {
-            audioSource.clip = audioClip[3];
+            audioSource.clip = audioClip[2];
             audioSource.Play();
         }
 
