@@ -38,7 +38,7 @@ public class FollowPlayer : MonoBehaviour
         }        
         else if(sceneName == "NightmareScene") 
         {
-            speed = 2;
+            speed = 3.5f;
         }
         enemyRb.AddForce((player.transform.position - transform.position).normalized * speed);
         //bug.Log(speed);

@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     public void Menu()
     {
         Scene scene = SceneManager.GetActiveScene();
+        Time.timeScale = 1f;
         SceneManager.LoadScene(levelNames[2]);
     }
 
@@ -98,14 +99,18 @@ public class GameManager : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && paused) 
         {
             pauseScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+
             paused = false;
             Time.timeScale = 0f;
             Debug.Log("Pause");
+
 
         }
         else if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && !paused)
         {
             pauseScreen.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
             paused = true;
             Time.timeScale = 1f;
             Debug.Log("UnPause");

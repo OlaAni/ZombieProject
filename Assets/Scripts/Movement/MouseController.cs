@@ -12,7 +12,9 @@ public class MouseController : MonoBehaviour
 
 
     [Header("Gun Sounds")]
-    private AudioSource gunAudio;
+    //private AudioSource gunAudio;
+    public AudioSource audioSource;
+
     public AudioClip shotgunSound;
     public AudioClip autoSound;
     public AudioClip emptySound;
@@ -35,7 +37,7 @@ public class MouseController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;//Hides tHE CURSOR
-        gunAudio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         PlayerController playerController = player.GetComponent<PlayerController>();
@@ -79,13 +81,13 @@ public class MouseController : MonoBehaviour
                     Instantiate(bullet1, transform.position , transform.rotation);
                     Instantiate(bullet1, transform.position + spread  , transform.rotation);
                     Instantiate(bullet1, transform.position + negspread  , transform.rotation);
-                    gunAudio.PlayOneShot(shotgunSound, 1.0f);
+                    audioSource.PlayOneShot(shotgunSound, 1.0f);
 
                     playerController.AmmoCount1--;
                 }
                 else 
                 {
-                    gunAudio.PlayOneShot(emptySound, 1.0f);
+                    audioSource.PlayOneShot(emptySound, 1.0f);
 
                 }
             }
@@ -100,7 +102,7 @@ public class MouseController : MonoBehaviour
                     {
 
                         Instantiate(bullet2, transform.position + offset, transform.rotation);
-                        gunAudio.PlayOneShot(shotgunSound, 1.0f);
+                        audioSource.PlayOneShot(shotgunSound, 1.0f);
                         playerController.AmmoCount2--;
 
                         timer = 0;
@@ -108,7 +110,7 @@ public class MouseController : MonoBehaviour
                 }
                 else 
                 {
-                    gunAudio.PlayOneShot(emptySound,1.0f);
+                    audioSource.PlayOneShot(emptySound,1.0f);
                 }
             }
         }

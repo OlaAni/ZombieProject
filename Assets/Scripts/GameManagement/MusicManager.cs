@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,18 +21,13 @@ public class MusicManager : MonoBehaviour
     {
         m_Scene = SceneManager.GetActiveScene();
         sceneName = m_Scene.name;
+        audioSource.volume = 0.5f;
 
-        if (sceneName == "EasyScene")
+        if (sceneName == "EasyScene" || sceneName == "HardScene")
         {
             audioSource.clip = audioClip[0];
             audioSource.Play();
-        }
-        else if (sceneName == "HardScene")
-        {
-            audioSource.clip = audioClip[1];
-            audioSource.Play();
-            //Debug.Log("SecondScene");
-        }        
+        }      
         else if (sceneName == "NightmareScene")
         {
             audioSource.clip = audioClip[2];

@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1235511818}
   m_Layer: 0
   m_Name: Terrain_0_0_ea34d444-b129-46f4-806b-437925438e30
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

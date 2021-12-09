@@ -2728,6 +2728,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806434133035585727}
     m_Modifications:
+    - target: {fileID: 1192641650779685130, guid: 1202c134d5593024189de67819a9efca, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 5842680194195415347}
     - target: {fileID: 6180602244481164838, guid: 1202c134d5593024189de67819a9efca, type: 3}
       propertyPath: bullet
       value: 
