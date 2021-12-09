@@ -16,3 +16,5 @@ Horror Music Menu - https://assetstore.unity.com/packages/audio/music/atmospheri
 Zombie Sound eefect - https://assetstore.unity.com/packages/audio/sound-fx/creatures/zombie-voice-audio-pack-free-196645
 fonts - https://www.1001fonts.com/?page=3
 
+3rd Party Code
+https://www.youtube.com/watch?v=_QajrabyTJc - FIRST PERSON MOVEMENT in Unity - FPS Controller
