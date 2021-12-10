@@ -111,6 +111,7 @@ MonoBehaviour:
   bullet1: {fileID: 5008490589333554964, guid: c578b701ffebf0242b9ddaf20fa6f130, type: 3}
   bullet2: {fileID: 3750976330124182529, guid: 7d58a08133b1b3547993b371c0b2446b, type: 3}
   playerController: {fileID: 6180602244677179475}
+  gameManager: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   spread: {x: 1, y: 0, z: 0}
   negspread: {x: -1, y: 0, z: 0}

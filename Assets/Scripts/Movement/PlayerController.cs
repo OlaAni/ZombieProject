@@ -60,11 +60,11 @@ public class PlayerController : MonoBehaviour
 
         if (isSwitched) 
         {
-            ammoText.text = "Shotgun: " + AmmoCount1 + "/100";
+            ammoText.text = "Shotgun: " + AmmoCount1 + "/50";
         }
         else 
         {
-            ammoText.text = "Pistol: " + AmmoCount2 + "/50";
+            ammoText.text = "Pistol: " + AmmoCount2 + "/100";
         }
 
         SwitchWeapon();

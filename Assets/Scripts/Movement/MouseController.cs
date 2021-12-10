@@ -26,6 +26,7 @@ public class MouseController : MonoBehaviour
     public GameObject bullet1;
     public GameObject bullet2;
     public PlayerController playerController;
+    public GameManager gameManager;
     public Vector3 offset = new Vector3(0,0,0);
 
     public Vector3 spread = new Vector3(1,0,0);
@@ -40,7 +41,9 @@ public class MouseController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject manager = GameObject.FindGameObjectWithTag("Manager");
         PlayerController playerController = player.GetComponent<PlayerController>();
+        GameManager gameManager = manager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -70,47 +73,50 @@ public class MouseController : MonoBehaviour
 
     public void ShootBullet() //decides a type bullet is shooting depend on the players chosen weapon
     {
-        timer += Time.deltaTime;//slowdown timer for second gun
-
-        if (playerController.isSwitched)
+        if (gameManager.paused == true)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                if (playerController.AmmoCount1 > 0)
-                {
-                    Instantiate(bullet1, transform.position , transform.rotation);
-                    Instantiate(bullet1, transform.position + spread  , transform.rotation);
-                    Instantiate(bullet1, transform.position + negspread  , transform.rotation);
-                    audioSource.PlayOneShot(shotgunSound, 1.0f);
+            timer += Time.deltaTime;//slowdown timer for second gun
 
-                    playerController.AmmoCount1--;
-                }
-                else 
-                {
-                    audioSource.PlayOneShot(emptySound, 1.0f);
-
-                }
-            }
-        }
-        else 
-        {
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0))
+            if (playerController.isSwitched)
             {
-                if (playerController.AmmoCount2 > 0)
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    if (timeDelay < timer)
+                    if (playerController.AmmoCount1 > 0)
                     {
-
-                        Instantiate(bullet2, transform.position + offset, transform.rotation);
+                        Instantiate(bullet1, transform.position, transform.rotation);
+                        Instantiate(bullet1, transform.position + spread, transform.rotation);
+                        Instantiate(bullet1, transform.position + negspread, transform.rotation);
                         audioSource.PlayOneShot(shotgunSound, 1.0f);
-                        playerController.AmmoCount2--;
 
-                        timer = 0;
+                        playerController.AmmoCount1--;
+                    }
+                    else
+                    {
+                        audioSource.PlayOneShot(emptySound, 1.0f);
+
                     }
                 }
-                else 
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0))
                 {
-                    audioSource.PlayOneShot(emptySound,1.0f);
+                    if (playerController.AmmoCount2 > 0)
+                    {
+                        if (timeDelay < timer)
+                        {
+
+                            Instantiate(bullet2, transform.position + offset, transform.rotation);
+                            audioSource.PlayOneShot(shotgunSound, 1.0f);
+                            playerController.AmmoCount2--;
+
+                            timer = 0;
+                        }
+                    }
+                    else
+                    {
+                        audioSource.PlayOneShot(emptySound, 1.0f);
+                    }
                 }
             }
         }

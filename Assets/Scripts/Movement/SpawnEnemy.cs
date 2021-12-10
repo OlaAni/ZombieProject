@@ -10,7 +10,7 @@ public class SpawnEnemy : MonoBehaviour
 
     public float spawnRangeX = -15;
     public float spawnPosZ = -5;
-    public float spawnPosY = 1;
+    public float spawnPosY = 1.5f;
     private float startDelay = 2;
     private float spawnInterval = 2f;
 

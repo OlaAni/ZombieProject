@@ -1969,7 +1969,7 @@ GameObject:
   - component: {fileID: 2407519174232336550}
   m_Layer: 0
   m_Name: SpawnManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2741,9 +2741,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6180602244481164838, guid: 1202c134d5593024189de67819a9efca, type: 3}
-      propertyPath: playerController
+      propertyPath: gameManager
       value: 
-      objectReference: {fileID: 346977628272032968}
+      objectReference: {fileID: 5842680194195415347}
     - target: {fileID: 6180602244677179472, guid: 1202c134d5593024189de67819a9efca, type: 3}
       propertyPath: m_RootOrder
       value: 2

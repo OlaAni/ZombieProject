@@ -11,6 +11,7 @@ TagManager:
   - AmmoAmounts
   - ZombieCartoon
   - Walls
+  - Manager
   layers:
   - Default
   - TransparentFX

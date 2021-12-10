@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public float speed;
+    public float speed = 2.5f;
     private Rigidbody enemyRb;
     private GameObject player;
     public ParticleSystem bloodParticle;
@@ -30,15 +30,15 @@ public class FollowPlayer : MonoBehaviour
 
         if(sceneName == "EasyScene") 
         {
-            speed = 3;
+            speed = 9;
         }
         else if(sceneName == "HardScene") 
         {
-            speed = 4;
+            speed = 12;
         }        
         else if(sceneName == "NightmareScene") 
         {
-            speed = 3.5f;
+            speed = 10;
         }
         enemyRb.AddForce((player.transform.position - transform.position).normalized * speed);
         //bug.Log(speed);
