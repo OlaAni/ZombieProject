@@ -29,11 +29,4 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex4);
     }
-
-
-    public void QuitGame() 
-    {
-        Debug.Log("Quit");
-        Application.Quit();
-    }
 }
